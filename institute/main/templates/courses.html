@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Courses{% endblock %}
+{% block content %}
+<h2 class="fw-bold mb-4">Our Courses</h2>
+
+<div class="row">
+  {% for c in course_list %}
+  <div class="col-md-4 mb-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4>{{ c.title }}</h4>
+        <p>{{ c.description|slice:":100" }}...</p>
+        <span class="badge bg-success">₹ {{ c.fees }}</span>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <p>No courses available.</p>
+  {% endfor %}
+</div>
+
+{% endblock %}

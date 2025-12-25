@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Edit Student{% endblock %}
+{% block content %}
+
+<h3 class="mb-3 fw-bold text-primary">Edit Student</h3>
+
+<form method="POST" class="card p-4 shadow">
+    {% csrf_token %}
+    
+    <label class="form-label">Full Name</label>
+    <input name="name" class="form-control mb-3" value="{{student.name}}" required>
+
+    <label class="form-label">Email</label>
+    <input name="email" type="email" class="form-control mb-3" value="{{student.email}}" required>
+
+    <label class="form-label">Contact</label>
+    <input name="contact" class="form-control mb-3" value="{{student.contact}}" required>
+
+    <label class="form-label">Course</label>
+    <select name="course" class="form-select mb-4">
+        {% for c in courses %}
+            <option value="{{c.id}}" {% if student.course.id == c.id %}selected{% endif %}>
+                {{c.title}}
+            </option>
+        {% endfor %}
+    </select>
+
+    <button class="btn btn-success">Update Student</button>
+    <a href="{% url 'view_students' %}" class="btn btn-secondary ms-2">Cancel</a>
+</form>
+
+{% endblock %}

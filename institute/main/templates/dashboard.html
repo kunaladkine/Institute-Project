@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row text-center mt-4">
+
+  <div class="col-md-4 mb-3">
+    <div class="card p-3 shadow">
+      <h4>Total Students</h4>
+      <h2>{{students}}</h2>
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <div class="card p-3 shadow">
+      <h4>Total Courses</h4>
+      <h2>{{courses}}</h2>
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <div class="card p-3 shadow bg-light">
+      <h4>New Inquiries</h4>
+      <h2>{{inquiries}}</h2>
+    </div>
+  </div>
+
+</div>
+
+<div class="text-center mt-4">
+  <a href="/add-student/" class="btn btn-primary">Add Student</a>
+  <a href="/students/" class="btn btn-secondary">Manage Students</a>
+  <a href="/add-course/" class="btn btn-info">Add Course</a>
+  <a href="/inquiries/" class="btn btn-danger">View Inquiries</a>  <!-- NEW -->
+</div>
+
+{% endblock %}

@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% block title %}Home - SkillZone Institute{% endblock %}
+{% block content %}
+
+<!-- 🎯 HERO SECTION -->
+<section class="hero-section p-5 text-white text-center rounded" style="background: linear-gradient(45deg, #4a00e0, #8e2de2);">
+  <h1 class="display-4 fw-bold">Learn Skills That Build Your Future 🚀</h1>
+  <p class="lead mt-3">Python, Django, Web Development, Data Science, AI & More</p>
+  <a href="/courses/" class="btn btn-light btn-lg mt-2 px-4">Explore Courses</a>
+</section>
+
+
+<!-- 👍 WHY CHOOSE US -->
+<section class="py-5">
+  <h2 class="text-center fw-bold mb-4">Why Choose <span class="text-primary">SkillZone</span>?</h2>
+  <div class="row text-center">
+
+    <div class="col-md-3 mb-4">
+      <div class="p-4 shadow rounded-4 hover-box">
+        <i class="fas fa-chalkboard-teacher fa-2x text-primary mb-3"></i>
+        <h5>Expert Trainers</h5>
+        <p>Learn from real industry experts working in MNCs.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="p-4 shadow rounded-4 hover-box">
+        <i class="fas fa-code fa-2x text-success mb-3"></i>
+        <h5>Practical Learning</h5>
+        <p>100% practical training with real projects & assignments.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="p-4 shadow rounded-4 hover-box">
+        <i class="fas fa-certificate fa-2x text-warning mb-3"></i>
+        <h5>Certification</h5>
+        <p>Get course completion certificates recognized by employers.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="p-4 shadow rounded-4 hover-box">
+        <i class="fas fa-briefcase fa-2x text-danger mb-3"></i>
+        <h5>Job Assistance</h5>
+        <p>Resume building + Interviews + Job referrals.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 📚 TOP COURSES OFFERED -->
+<section class="py-5 bg-light">
+  <h2 class="text-center fw-bold mb-4">Our Top Courses 📚</h2>
+  <div class="row">
+
+    {% for c in course_list %}
+    <div class="col-md-4 mb-3">
+      <div class="card h-100 shadow-sm course-card">
+        <div class="card-body">
+          <h4 class="fw-bold">{{ c.title }}</h4>
+          <p>{{ c.description|slice:":100" }}...</p>
+          <span class="badge bg-success">₹ {{ c.fees }}</span><br>
+          <a href="/courses/" class="btn btn-primary btn-sm mt-3">View Details</a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-center">No courses available right now.</p>
+    {% endfor %}
+
+  </div>
+</section>
+
+
+<!-- 👩‍🏫 OUR FACULTY -->
+<section class="py-5">
+  <h2 class="text-center fw-bold mb-4">Our Expert Faculty 👩‍🏫</h2>
+  <div class="row text-center">
+
+    <div class="col-md-3 mb-3">
+      <div class="faculty-card p-3 shadow rounded">
+        <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" width="120">
+        <h6 class="fw-bold">Rahul Sharma</h6>
+        <p class="text-muted">Python & Django Trainer</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <div class="faculty-card p-3 shadow rounded">
+        <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" width="120">
+        <h6 class="fw-bold">Sneha Patil</h6>
+        <p class="text-muted">Data Science Expert</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <div class="faculty-card p-3 shadow rounded">
+        <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" width="120">
+        <h6 class="fw-bold">Amit Verma</h6>
+        <p class="text-muted">Full-Stack Developer</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <div class="faculty-card p-3 shadow rounded">
+        <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" width="120">
+        <h6 class="fw-bold">Priya Singh</h6>
+        <p class="text-muted">AI & ML Specialist</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 🏫 ABOUT US -->
+<section class="py-5 bg-light">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h2 class="fw-bold mb-3">About <span class="text-primary">SkillZone</span></h2>
+      <p>
+        SkillZone Institute is a modern training center focused on building tech careers.
+        With practical courses, expert trainers and job guidance, we help students step confidently into the IT world 🚀
+      </p>
+      <a href="/about/" class="btn btn-primary mt-3">Know More</a>
+    </div>
+    <div class="col-md-6">
+      <img src="https://via.placeholder.com/600x350" class="img-fluid rounded shadow">
+    </div>
+  </div>
+</section>
+
+<!-- 📞 CALL TO ACTION SECTION / DEMO FORM -->
+<section class="cta-section py-5 text-white">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- TEXT SIDE -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="display-5 fw-bold mb-3">Ready to Start Your Learning Journey? 🚀</h2>
+        <p class="lead mb-4">Join 3,000+ students who upgraded their skills in Python, Django, Web Development, AI & more at SkillZone Institute.</p>
+        
+        <div class="d-flex flex-wrap">
+          <a href="/courses/" class="btn btn-light btn-lg fw-bold me-3 mb-3 px-4">Browse Courses</a>
+          <a href="/contact/" class="btn btn-outline-light btn-lg mb-3 px-4">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+  <div class="card border-0 shadow-lg rounded-3">
+    <div class="card-body p-4 p-md-5">
+      <h3 class="fw-bold text-center mb-4">Book a Free Counseling Session 🎯</h3>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-success text-center">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="POST" action="{% url 'book_demo' %}">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <input type="text" name="name" class="form-control form-control-lg" placeholder="Your Name" required>
+        </div>
+
+        <div class="mb-3">
+          <input type="email" name="email" class="form-control form-control-lg" placeholder="Your Email" required>
+        </div>
+
+        <div class="mb-3">
+          <input type="text" name="phone" class="form-control form-control-lg" placeholder="Phone Number" required>
+        </div>
+
+        <div class="mb-3">
+          <select name="course" class="form-control form-control-lg" required>
+            <option selected disabled>Select Interested Course</option>
+            <option>Python Programming</option>
+            <option>Django Full Stack</option>
+            <option>Data Science & ML</option>
+            <option>Web Development</option>
+            <option>Full Stack Development</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg w-100">
+          Book Free Demo Class
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+<style>
+.cta-section {
+  background: linear-gradient(45deg, #0d6efd, #6610f2, #0dcaf0);
+  background-size: 300% 300%;
+  animation: gradientMove2 8s infinite alternate;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+@keyframes gradientMove2 {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card {
+  border-radius: 20px !important;
+}
+</style>
+
+
+
+
+{% endblock %}
